@@ -31,4 +31,4 @@ Esto se obtiene restando el límite de memoria física asignada (300 MB) del tot
 ```
 1024MB − 300MB = 724MB
 ```
-Entonces, el contenedor tiene 300 MB de RAM y puede usar hasta 724 MB adicionales de swap si necesita más memoria.
+Entonces, el contenedor puede usar hasta 724 MB adicionales de swap si necesita más memoria.
