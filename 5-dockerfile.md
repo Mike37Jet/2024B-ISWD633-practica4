@@ -58,7 +58,17 @@ PS C:\Users\migue\mi-proyecto> docker build -t myapp:1.0 .
 
 **¿Cuántos pasos se han ejecutado?**
 # RESPONDER 
-Aunque el archivo *Dockerfile* contiene 6 instrucciones en total, el paso EXPOSE no ejecuta un comando propiamente dicho, solo informa a Docker qué puerto debe exponer. Por lo tanto, se consideran 5 pasos que efectivamente ejecutan acciones.
+En el proceso de construcción del contenedor Docker se ejecutaron un total de 9 pasos. Los cuales son los siguientes:
+
+1. Cargar la definición de la construcción desde el Dockerfile.
+2. Cargar los metadatos de la imagen base (almalinux:8).
+3. Cargar el archivo .dockerignore.
+4. Resolver la imagen almalinux:8 (usando una versión cacheada).
+5 Cargar el contexto de construcción.
+6. Ejecutar yum -y update.
+7. Ejecutar yum -y install httpd.
+8. Copiar archivos de ./web a /var/www/html.
+9. Exportar y nombrar la imagen como myapp:1.0.
 
 ### Inspeccionar la imagen creada
 # COMPLETAR CON UNA CAPTURA
