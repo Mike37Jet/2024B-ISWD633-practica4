@@ -53,14 +53,16 @@ docker build -t <nombre imagen>:<tag> .
 ### Ejecutar el archivo Dockerfile y construir una imagen en la versión 1.0
 No olvides verificar en qué directorio se encuentra el archivo Dockerfile
 ```
-
+PS C:\Users\migue\mi-proyecto> docker build -t myapp:1.0 .
 ```
 
 **¿Cuántos pasos se han ejecutado?**
 # RESPONDER 
+Aunque el archivo *Dockerfile* contiene 6 instrucciones en total, el paso EXPOSE no ejecuta un comando propiamente dicho, solo informa a Docker qué puerto debe exponer. Por lo tanto, se consideran 5 pasos que efectivamente ejecutan acciones.
 
 ### Inspeccionar la imagen creada
 # COMPLETAR CON UNA CAPTURA
+![image](https://github.com/user-attachments/assets/da81f24b-8cc3-43cd-944b-dbc17e8d33a1)
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
