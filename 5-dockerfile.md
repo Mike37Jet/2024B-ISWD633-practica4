@@ -92,14 +92,19 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### Crear un contenedor a partir de las imagen creada, mapear todos los puertos
 ```
-
+docker run -d -P --name myapp-container2 myapp:2.0
 ```
 
 ### ¿Con que puerto host se está realizando el mapeo?
 # COMPLETAR CON LA RESPUESTA
-
+```
+PS E:\source\2024B-ISWD633-practica4> docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                   NAMES
+9717985ae37a   myapp:2.0   "apachectl -D FOREGR…"   56 seconds ago   Up 55 seconds   0.0.0.0:32768->80/tcp   myapp-container2
+```
 **¿Qué es una imagen huérfana?**
 # COMPLETAR CON LA RESPUESTA
+Una imagen huérfana es una imagen de Docker que no está asociada a ningún contenedor. Es decir, se trata de una imagen que no está siendo utilizada ni por un contenedor en ejecución ni por un contenedor detenido.
 
 ### Identificar imágenes huérfanas
 ```
