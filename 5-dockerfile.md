@@ -77,6 +77,7 @@ En el proceso de construcción del contenedor Docker se ejecutaron un total de 9
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
+
 En el proceso de construcción de la imagen myapp:2.0, se ejecutaron 2 pasos sin contar los pasos de caché:
 - Paso [1/4] FROM docker.io/library/almalinux:8: Descarga y utiliza la imagen base almalinux:8.
 - Paso [4/4] COPY ./web /var/www/html: Copia la carpeta web al contenedor en la ruta /var/www/html. 
