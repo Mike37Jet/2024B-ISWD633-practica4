@@ -72,10 +72,15 @@ En el proceso de construcción del contenedor Docker se ejecutaron un total de 9
 
 ### Inspeccionar la imagen creada
 # COMPLETAR CON UNA CAPTURA
-![image](https://github.com/user-attachments/assets/da81f24b-8cc3-43cd-944b-dbc17e8d33a1)
+![image](https://github.com/user-attachments/assets/b2633150-9bf0-4ac1-86b2-56f74f0523e0)
+![image](https://github.com/user-attachments/assets/ac695bd8-ff5d-434d-b7e9-a77b62599d3e)
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
+
+En el proceso de construcción de la imagen myapp:2.0, se ejecutaron 2 pasos sin contar los pasos de caché:
+- Paso [1/4] FROM docker.io/library/almalinux:8: Descarga y utiliza la imagen base almalinux:8.
+- Paso [4/4] COPY ./web /var/www/html: Copia la carpeta web al contenedor en la ruta /var/www/html. 
 
 ## Mecanismo de caché
 Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso de construcción y evitar la repetición de pasos que no han cambiado. Cada instrucción en un Dockerfile crea una capa en la imagen final. Docker intenta reutilizar las capas de una construcción anterior si no han cambiado, lo que reduce significativamente el tiempo de construcción.
@@ -87,14 +92,19 @@ Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso
 
 ### Crear un contenedor a partir de las imagen creada, mapear todos los puertos
 ```
-
+docker run -d -P --name myapp-container2 myapp:2.0
 ```
 
 ### ¿Con que puerto host se está realizando el mapeo?
 # COMPLETAR CON LA RESPUESTA
-
+```
+PS E:\source\2024B-ISWD633-practica4> docker ps
+CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                   NAMES
+9717985ae37a   myapp:2.0   "apachectl -D FOREGR…"   56 seconds ago   Up 55 seconds   0.0.0.0:32768->80/tcp   myapp-container2
+```
 **¿Qué es una imagen huérfana?**
 # COMPLETAR CON LA RESPUESTA
+Una imagen huérfana es una imagen de Docker que no está asociada a ningún contenedor. Es decir, se trata de una imagen que no está siendo utilizada ni por un contenedor en ejecución ni por un contenedor detenido.
 
 ### Identificar imágenes huérfanas
 ```
