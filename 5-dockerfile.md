@@ -72,10 +72,14 @@ En el proceso de construcción del contenedor Docker se ejecutaron un total de 9
 
 ### Inspeccionar la imagen creada
 # COMPLETAR CON UNA CAPTURA
-![image](https://github.com/user-attachments/assets/da81f24b-8cc3-43cd-944b-dbc17e8d33a1)
+![image](https://github.com/user-attachments/assets/b2633150-9bf0-4ac1-86b2-56f74f0523e0)
+![image](https://github.com/user-attachments/assets/ac695bd8-ff5d-434d-b7e9-a77b62599d3e)
 
 **Modificar el archivo index.html para incluir su nombre y luego crear una nueva versión de la imagen anterior**
 **¿Cuántos pasos se han ejecutado? ¿Observa algo diferente en la creación de la imagen**
+En el proceso de construcción de la imagen myapp:2.0, se ejecutaron 2 pasos sin contar los pasos de caché:
+- Paso [1/4] FROM docker.io/library/almalinux:8: Descarga y utiliza la imagen base almalinux:8.
+- Paso [4/4] COPY ./web /var/www/html: Copia la carpeta web al contenedor en la ruta /var/www/html. 
 
 ## Mecanismo de caché
 Docker usa un mecanismo de caché cuando crea imágenes para acelerar el proceso de construcción y evitar la repetición de pasos que no han cambiado. Cada instrucción en un Dockerfile crea una capa en la imagen final. Docker intenta reutilizar las capas de una construcción anterior si no han cambiado, lo que reduce significativamente el tiempo de construcción.
